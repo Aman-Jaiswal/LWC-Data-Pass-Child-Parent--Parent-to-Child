@@ -6,4 +6,8 @@ export default class ChildCmp extends LightningElement {
     @api getMsgFromParentCmp(parentMsg){
         this.getParentMsgByChildMethod = parentMsg;
     }
+
+    passChildMsgToParentCmp(){
+        this.dispatchEvent(new CustomEvent("getchildmsg",{detail:{data:'testing'}}))
+    }
 }

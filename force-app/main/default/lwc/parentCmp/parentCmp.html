@@ -11,9 +11,14 @@
             </lightning-input>
             <!-- 2 ways to pass parent component msg to child componet msg by calling child componet method
       or attribute-->
-            <c-child-cmp  get-parent-msg-by-attribute={sendChildMsgByAttribute} lwc:ref="callChildMethodForMsgPassing"></c-child-cmp>
+            <c-child-cmp  get-parent-msg-by-attribute={sendChildMsgByAttribute}  ongetchildmsg = {getMsgFromChildCmp} lwc:ref="callChildMethodForMsgPassing"></c-child-cmp>
         </div>
-    </div>
-     <lightning-button variant="base" label="Send Msg To Child Cmp" title="Looks like a link" onclick={sendChildMsg}
+        <lightning-button variant="base" label="Send Msg To Child Cmp" title="Looks like a link" onclick={sendChildMsg}
         class="slds-m-left_x-small"></lightning-button>
+
+        <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+            Message from Child Cmp:{getMsgChildCmp}
+        </h2>
+    </div>
+     
 </template>
