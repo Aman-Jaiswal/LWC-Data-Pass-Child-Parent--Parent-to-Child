@@ -1,10 +1,15 @@
 <template>
-    <lightning-input type="text" data-id="parentmsg" message-when-pattern-mismatch="Too many characters" pattern=".{0,5}"
-        label="Enter up to 5 characters" value="{childMsg}" lwc:ref="msgForChild">
-    </lightning-input>
-    <!-- 2 ways to pass parent component msg to child componet msg by calling child componet method
+    <div class="slds-m-top_medium slds-m-bottom_x-large">
+        <!-- Default/basic -->
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input type="text" data-id="parentmsg" message-when-pattern-mismatch="Too many characters"
+                label="Enter up to 5 characters" value={sendChildMsgByAttribute} lwc:ref="msgForChild">
+            </lightning-input>
+            <!-- 2 ways to pass parent component msg to child componet msg by calling child componet method
       or attribute-->
-    <c-child-cmp parent-msg="childMsg" lwc:ref="callChildMethodForMsgPassing"></c-child-cmp>
-    <lightning-button variant="base" label="Send Msg To Child Cmp" title="Looks like a link" onclick={SendChildMsg}
+            <c-child-cmp  get-parent-msg-by-attribute={sendChildMsgByAttribute} lwc:ref="callChildMethodForMsgPassing"></c-child-cmp>
+        </div>
+    </div>
+     <lightning-button variant="base" label="Send Msg To Child Cmp" title="Looks like a link" onclick={sendChildMsg}
         class="slds-m-left_x-small"></lightning-button>
 </template>
