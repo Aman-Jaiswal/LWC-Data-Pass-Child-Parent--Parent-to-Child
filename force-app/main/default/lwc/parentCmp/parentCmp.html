@@ -1,0 +1,7 @@
+<template>
+    <lightning-input type="text" data-id="parentmsg" message-when-pattern-mismatch="Too many characters"
+        pattern=".{0,5}" label="Enter up to 5 characters"></lightning-input>
+    <lightning-button class="slds-var-p-vertical_xx-small" label="Send Msg Child" onclick={sendChildMsg}>
+    </lightning-button>
+    <c-child-cmp parent-msg="parentMsg"></c-child-cmp>
+</template>
