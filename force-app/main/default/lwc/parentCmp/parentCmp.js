@@ -1,9 +1,15 @@
 import { LightningElement } from 'lwc';
 
 export default class ParentCmp extends LightningElement {
-    childMsg
+    sendChildMsgByAttribute;
+    sendChildMsgByCallingChildMethod;
     sendChildMsg() {
-        this.childMsg = this.template.querySelector('[data-id="parentmsg"]').value;
+        // 2 ways to get textbox value
+        this.sendChildMsgByAttribute = this.template.querySelector('[data-id="parentmsg"]').value;
+        this.sendChildMsgByCallingChildMethod =  this.refs.msgForChild.value;
+        this.refs.callChildMethodForMsgPassing.getMsgFromParentCmp(this.childMsg);
     }
+
+   
 
 }
